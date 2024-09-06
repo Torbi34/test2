@@ -1,8 +1,6 @@
 package fr.iut.editeur.commande.factory;
 
-import fr.iut.editeur.commande.Commande;
-import fr.iut.editeur.commande.CommandeAjouter;
-import fr.iut.editeur.commande.CommandeRemplacer;
+import fr.iut.editeur.commande.*;
 import fr.iut.editeur.document.Document;
 
 public class CommandeFactory {
@@ -22,8 +20,12 @@ public class CommandeFactory {
         switch (name) {
             case "ajouter":
                 return new CommandeAjouter(document, parameters);
-            case "remplacer":  // Ajout du cas pour la commande "remplacer"
+            case "remplacer":
                 return new CommandeRemplacer(document, parameters);
+            case "majuscules":
+                return new CommandeMajuscules(document, parameters);
+            case "effacer":  // Ajout du cas pour la commande "effacer"
+                return new CommandeEffacer(document, parameters);
             default:
                 return null;
         }
