@@ -12,7 +12,7 @@ public class CommandeAjouter extends CommandeDocument {
     @Override
     public void executer() {
         if(parameters.length < 2) {
-            System.err.println("Format attendu : ajouter;texte");
+            System.err.println("Format attendu :  ajouter;texte");
             return;
         }
         String texte = parameters[1];
