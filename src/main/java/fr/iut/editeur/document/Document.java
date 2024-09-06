@@ -26,6 +26,23 @@ public class Document {
         texte = partieGauche + remplacement + partieDroite;
     }
 
+    public void majuscules(int debut, int fin) {
+        // Vérification que les indices sont valides
+        if (debut < 0 || fin >= texte.length() || debut > fin) {
+            System.err.println("Indices invalides");
+            return;
+        }
+
+        // Extraire la portion de texte à mettre en majuscules
+        String portion = texte.substring(debut, fin + 1);
+
+        // Convertir la portion en majuscules
+        String portionMajuscules = portion.toUpperCase();
+
+        // Remplacer la portion dans le texte avec la méthode remplacer
+        remplacer(debut, fin, portionMajuscules);
+    }
+
 
     @Override
     public String toString() {
