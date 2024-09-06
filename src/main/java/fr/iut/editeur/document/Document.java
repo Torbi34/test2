@@ -49,9 +49,15 @@ public class Document {
             return;
         }
 
+
         // Utilisation de la méthode remplacer avec une chaîne vide pour supprimer le texte
         remplacer(debut, fin, "");
     }
+
+    public void clear() {
+        this.texte = "";
+    }
+
 
 
 

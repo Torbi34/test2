@@ -24,10 +24,12 @@ public class CommandeFactory {
                 return new CommandeRemplacer(document, parameters);
             case "majuscules":
                 return new CommandeMajuscules(document, parameters);
-            case "effacer":  // Ajout du cas pour la commande "effacer"
+            case "effacer":
                 return new CommandeEffacer(document, parameters);
+            case "clear":  // Ajout du cas pour la commande "clear"
+                return new CommandeClear(document, parameters);
             default:
-                return null;
+                return null;batman
         }
     }
 }
