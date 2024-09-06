@@ -42,6 +42,17 @@ public class Document {
         // Remplacer la portion dans le texte avec la méthode remplacer
         remplacer(debut, fin, portionMajuscules);
     }
+    public void effacer(int debut, int fin) {
+        // Vérification que les indices sont valides
+        if (debut < 0 || fin >= texte.length() || debut > fin) {
+            System.err.println("Indices invalides");
+            return;
+        }
+
+        // Utilisation de la méthode remplacer avec une chaîne vide pour supprimer le texte
+        remplacer(debut, fin, "");
+    }
+
 
 
     @Override
