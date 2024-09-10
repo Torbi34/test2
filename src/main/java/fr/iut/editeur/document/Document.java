@@ -7,7 +7,7 @@ public class Document {
     public Document() {
         this.texte = "";
     }
-	
+
     public String getTexte() {
         return texte;
     }
@@ -20,46 +20,50 @@ public class Document {
         this.texte += texte;
     }
 
+    // Méthode d'insertion
+    public void inserer(int position, String texteAInserer) {
+        if (position < 0 || position > texte.length()) {
+            System.err.println("Position invalide.");
+            return;
+        }
+        String partieGauche = texte.substring(0, position);
+        String partieDroite = texte.substring(position);
+        texte = partieGauche + texteAInserer + partieDroite;
+    }
+
     public void remplacer(int debut, int fin, String remplacement) {
+        if (debut < 0 || fin >= texte.length() || debut > fin) {
+            System.err.println("Indices de remplacement invalides.");
+            return;
+        }
         String partieGauche = texte.substring(0, debut);
         String partieDroite = texte.substring(fin + 1);
         texte = partieGauche + remplacement + partieDroite;
     }
 
     public void majuscules(int debut, int fin) {
-        // Vérification que les indices sont valides
         if (debut < 0 || fin >= texte.length() || debut > fin) {
-            System.err.println("Indices invalides");
+            System.err.println("Indices de majuscules invalides.");
             return;
         }
-
-        // Extraire la portion de texte à mettre en majuscules
-        String portion = texte.substring(debut, fin + 1);
-
-        // Convertir la portion en majuscules
-        String portionMajuscules = portion.toUpperCase();
-
-        // Remplacer la portion dans le texte avec la méthode remplacer
-        remplacer(debut, fin, portionMajuscules);
+        String partieGauche = texte.substring(0, debut);
+        String partieDroite = texte.substring(fin);
+        texte = partieGauche + texte.substring(debut, fin).toUpperCase() + partieDroite;
     }
+
     public void effacer(int debut, int fin) {
-        // Vérification que les indices sont valides
         if (debut < 0 || fin >= texte.length() || debut > fin) {
-            System.err.println("Indices invalides");
+            System.err.println("Indices d'effacement invalides.");
             return;
         }
-
-
-        // Utilisation de la méthode remplacer avec une chaîne vide pour supprimer le texte
-        remplacer(debut, fin, "");
+        String partieGauche = texte.substring(0, debut);
+        String partieDroite = texte.substring(fin);
+        texte = partieGauche + partieDroite;
     }
 
     public void clear() {
-        this.texte = "";
+        texte = "";
     }
-
-
-
 
     @Override
     public String toString() {
