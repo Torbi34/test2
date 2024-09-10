@@ -29,7 +29,7 @@ public class CommandeFactory {
             case "clear":  // Ajout du cas pour la commande "clear"
                 return new CommandeClear(document, parameters);
             default:
-                return null;batman
+                return null;
         }
     }
 }
