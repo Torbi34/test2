@@ -57,6 +57,10 @@ public class Document {
     public void clear() {
         this.texte = "";
     }
+    public void inserer() {
+        this.texte += "*inserer*";
+    }
+
 
 
 
