@@ -15,5 +15,6 @@ public class CommandeClear extends CommandeDocument {
 
         // Exécution de la commande
         super.executer();
+        batman
     }
 }
