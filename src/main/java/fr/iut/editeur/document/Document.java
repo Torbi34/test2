@@ -58,6 +58,12 @@ public class Document {
         // Remplacer la portion dans le texte avec la méthode remplacer
         remplacer(debut, fin, portionMajuscules);
     }
+
+    /**
+     *
+     * @param debut papadkpazdpojaz,
+     * @param fin voila
+     */
     public void effacer(int debut, int fin) {
         // Vérification que les indices sont valides
         if (debut < 0 || fin >= texteDocument.length() || debut > fin) {

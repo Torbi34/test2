@@ -19,6 +19,10 @@ public class CommandeAjouter extends CommandeDocument {
         super.executer();
     }
 
+    /**
+     *
+     * @return un sttring
+     */
     @Override
     public String getDescriptionCommande() {
         return "Ajoute le texte spécifié à la fin du document. Format: ajouter;texte";
