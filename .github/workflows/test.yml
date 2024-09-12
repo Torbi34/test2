@@ -1,0 +1,35 @@
+name: Java CI
+
+on:
+  push:    # Déclenche le workflow à chaque push
+    branches:
+      - '*'  # Toutes les branches
+
+jobs:
+  build:
+    name: Run Unit Tests
+    runs-on: ubuntu-latest  # Utilisation de la dernière version d'Ubuntu
+
+    steps:
+      - name: Checkout repository  # Étape pour récupérer le code source
+        uses: actions/checkout@v2
+
+      - name: Set up JDK 17  # Étape pour installer Java (vous pouvez choisir une autre version)
+        uses: actions/setup-java@v3
+        with:
+          distribution: 'temurin'  # Installation d'OpenJDK (Temurin)
+          java-version: '17'       # Version de Java
+
+      - name: Cache Maven packages  # Étape pour mettre en cache les dépendances Maven (si vous utilisez Maven)
+        uses: actions/cache@v3
+        with:
+          path: ~/.m2/repository
+          key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
+          restore-keys: |
+            ${{ runner.os }}-maven-
+
+      - name: Install dependencies  # Étape pour télécharger les dépendances Maven
+        run: mvn install -DskipTests
+
+      - name: Run tests  # Étape pour exécuter les tests unitaires
+        run: mvn test

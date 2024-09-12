@@ -30,8 +30,6 @@ public class CommandeFactory {
                 return new CommandeEffacer(document, parameters);
             case "clear":  // Ajout du cas pour la commande "clear"
                 return new CommandeClear(document, parameters);
-            case "inserer":  // Ajout du cas pour la commande "clear"
-                return new CommandeInserer(document, parameters);
             default:
                 return null;
         }
